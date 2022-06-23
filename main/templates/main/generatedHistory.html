@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stories</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #main {
+            display: flex;
+            height: 750px;
+            justify-content: center;
+            align-items: center;
+            /* background: none; */
+            background: rgb(0, 0, 0, 0.7) url('/static/img/background.jpg') no-repeat;
+            background-size: cover;
+        }
+
+        .content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-family: 'Times New Roman', Times, serif;
+            max-width: 50%;
+            margin: auto;
+            height: 75%;
+            background: none;
+        }
+
+        .box {
+            display: inline-block;
+            position: relative;
+            background: none;
+            background-color: rgba(0, 0, 0, 0);
+            top: -133px;
+            left: -87px;
+            border: 2px solid green;
+            padding: 20px 30px;
+            border-radius: 40px;
+            background-color: rgba(255, 166, 0, 0.856);
+            box-sizing: border-box;
+        }
+
+        .heading {
+            display: inline-block;
+            position: relative;
+            top: -287px;
+            left: 277px;
+        }
+    </style>
+</head>
+
+<body>
+    <section id="main">
+        <div class="content">
+            <h1 class="heading">History</h1>
+            {% for ele in generated_Hist %}
+            <li>
+                <div class="box">
+                   {{ele.generated_text}}
+                </div>
+                {{linebreaks}}
+            </li>
+            {% endfor %}
+        </div>
+    </section>
+</body>
+
+</html>

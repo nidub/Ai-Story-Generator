@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Post Stories</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #main {
+            display: flex;
+            height: 837px;
+            justify-content: center;
+            align-items: center;
+            /* background: none; */
+            background: rgb(0, 0, 0, 0.7) url('/static/img/background.jpg') no-repeat;
+            background-size: cover;
+        }
+
+        .content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-family: 'Times New Roman', Times, serif;
+            max-width: 50%;
+            margin: auto;
+            height: 75%;
+            background: none;
+        }
+
+        .box {
+            display: inline-block;
+            position: relative;
+            background: none;
+            top: 25px;
+            left: -87px;
+        }
+
+        .heading{
+            display: inline-block;
+            position: relative;
+            top: -55px;
+            left: 245px;
+        }
+
+        .form-label{
+            background: none;
+            font-weight: bold;
+        }
+
+        .form-control{
+            background: none;
+            display: inline-block;
+            position: relative;
+            left: 175px;
+            top: -30px;
+            padding: 10px 20px;
+            width: 100%;
+            height: 40px;
+            box-sizing: border-box;
+            border: 2px solid white;
+            border-radius: 10px;
+            color: white;
+        }
+
+        .btn {
+            display: inline-block;
+            position: relative;
+            left: 229px;
+            padding: 8px 20px;
+            margin: 7px 3px;
+            border: 2px solid green;
+            color: white;
+            border-radius: 8px;
+            cursor: pointer;
+            background: green;
+            font-weight: bold;
+        }
+
+        .btn:hover {
+            padding: 8px 20px;
+            margin: 7px 3px;
+            border: 2px solid green;
+            color: white;
+            border-radius: 8px;
+            cursor: pointer;
+            background: green;
+        }
+    </style>
+</head>
+
+<body>
+    {% load widget_tweaks %}
+    <Section id="main">
+        <div class="content">
+            <div class="box">
+                <h1 class="heading">Stories</h1>
+                <form method="POST" , action="/stories/">
+                    {% csrf_token %}
+                    <label for="inputEmail4" class="form-label">Paste Your Stories Here:</label>
+                    {% render_field form.my_story class="form-control" placeholder="Enter Your Story" type="name" attr="required"%}
+                    <br>
+
+                    <button type="submit" , name="save", class="btn">
+                        Store it
+                    </button>
+                </form>
+            </div>
+        </div>
+    </Section>
+</body>
+
+</html>
